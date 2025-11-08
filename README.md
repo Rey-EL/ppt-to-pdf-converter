@@ -1,4 +1,4 @@
-# PowerPoint to PDF Converter & Merger
+# ppt-to-pdf-converter
 
 A Windows GUI application that automates converting multiple PowerPoint files (`.ppt`, `.pptx`) into PDFs and then merges them into a single document.
 
@@ -45,7 +45,7 @@ This is a **Windows-only** application and requires **Microsoft PowerPoint** to 
 
 1.  **Run the script from your terminal:**
     ```bash
-    python3 convert_to_pdf.py
+    python3 PptToPdfConverter.py
     ```
 
 2.  **Select a Folder:** Click the **"1. Select Folder with Presentations"** button and choose the folder containing your `.ppt` or `.pptx` files.
@@ -72,7 +72,7 @@ To build the executable:
 2.  **Run the build command from the project directory:**
     This command will create a `.spec` file and a `dist` folder containing the final `convert_to_pdf.exe`.
     ```bash
-    pyinstaller --onefile --windowed convert_to_pdf.py
+    pyinstaller --onefile --windowed PptToPdfConverter.py
     ```
 
 3.  The final `convert_to_pdf.exe` will be located in the `dist` folder.
