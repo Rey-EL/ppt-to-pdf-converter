@@ -1,24 +1,78 @@
 # PowerPoint to PDF Converter & Merger
 
-This is a complete GUI application for Windows that automates the process of converting all PowerPoint (.ppt and .pptx) files within a folder into PDFs and then merging them into a single, combined PDF document.
+A Windows GUI application that automates converting multiple PowerPoint files (`.ppt`, `.pptx`) into PDFs and then merges them into a single document.
 
-## Features
+---
 
-*   **Full GUI Application:** Built with `tkinter`, providing a user-friendly interface with folder selection, a "Save As" dialog, a live status label, and a progress bar.
-*   **PowerPoint Automation:** Uses the `win32com.client` library to programmatically open Microsoft PowerPoint in the background, convert presentations to high-fidelity PDFs, and then close.
-*   **PDF Merging:** After conversion, the script uses the `pypdf` library to merge all the newly created PDFs into a single file.
-*   **Safe Temp File Handling:** Creates a secure temporary directory (using `tempfile`) to store the intermediate PDFs. This directory is automatically deleted after the final merge is complete, leaving no messy files behind.
-*   **Recursive Search:** Scans the selected folder and all its subfolders to find every PowerPoint file, ensuring none are missed.
-*   **Error Handling:** Includes `try...except` blocks to provide detailed error messages to the user if a file fails to convert or the application encounters a critical error.
+## **CRITICAL: System Requirements**
 
-## Deployment / Executable
+This is a **Windows-only** application and requires **Microsoft PowerPoint** to be installed on the system to function. It uses Windows COM automation to programmatically control PowerPoint for high-fidelity conversions.
 
-A `convert_to_pdf.spec` file is included in this repository. This file is a "recipe" for PyInstaller, which compiles this Python script into a standalone `convert_to_pdf.exe` for Windows. The `console=False` flag ensures it runs as a true windowed application without a background terminal.
+---
 
-## How to Use
+## Key Features
 
-1.  Run the script or the compiled `.exe` file.
-2.  Click the "1. Select Folder with Presentations" button and choose your folder.
-3.  Click the "2. Convert and Save As PDF..." button to choose where to save your new file.
-4.  The progress bar and status label will update as the script works.
-5.  A success message will appear when the merge is complete.
+*   **Full GUI Application:** Built with `tkinter` for a user-friendly interface, including a progress bar and live status updates.
+*   **PowerPoint Automation:** Uses the `win32com` library to leverage your existing PowerPoint installation for perfect conversions.
+*   **Recursive Search:** Scans a selected folder and all its subfolders to find every PowerPoint presentation.
+*   **PDF Merging:** After conversion, it uses the `pypdf` library to merge all the newly created PDFs into a single file.
+*   **Clean & Safe:** Uses a temporary directory to store intermediate PDFs, which is automatically deleted upon completion, leaving no trace.
+*   **Robust Error Handling:** Provides detailed error messages if a file fails to convert or if another issue occurs.
+
+---
+
+## Installation & Setup
+
+1.  **Navigate to the project directory:**
+    ```bash
+    cd ppt-to-pdf-converter
+    ```
+
+2.  **Install dependencies:**
+    It's highly recommended to use a virtual environment.
+    ```bash
+    # Create and activate a virtual environment
+    python3 -m venv venv
+    source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
+
+    # Install the required packages
+    pip install -r requirements.txt
+    ```
+
+---
+
+## Usage
+
+1.  **Run the script from your terminal:**
+    ```bash
+    python3 convert_to_pdf.py
+    ```
+
+2.  **Select a Folder:** Click the **"1. Select Folder with Presentations"** button and choose the folder containing your `.ppt` or `.pptx` files.
+
+3.  **Convert and Save:** Click the **"2. Convert and Save As PDF..."** button. A "Save As" dialog will appear for you to name your final merged PDF.
+
+4.  **Monitor Progress:** The application will convert each presentation one by one. The progress bar and status label will update in real-time.
+
+5.  **Done:** A success message will appear when the merge is complete.
+
+---
+
+## Creating a Standalone Executable (Optional)
+
+You can bundle this application into a single `.exe` file using **PyInstaller**. This allows it to be run on other Windows machines (provided they also have PowerPoint installed).
+
+To build the executable:
+
+1.  **Install PyInstaller:**
+    ```bash
+    pip install pyinstaller
+    ```
+
+2.  **Run the build command from the project directory:**
+    This command will create a `.spec` file and a `dist` folder containing the final `convert_to_pdf.exe`.
+    ```bash
+    pyinstaller --onefile --windowed convert_to_pdf.py
+    ```
+
+3.  The final `convert_to_pdf.exe` will be located in the `dist` folder.
