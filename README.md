@@ -17,7 +17,17 @@ This is a **Windows-only** application and requires **Microsoft PowerPoint** to 
 *   **Recursive Search:** Scans a selected folder and all its subfolders to find every PowerPoint presentation.
 *   **PDF Merging:** After conversion, it uses the `pypdf` library to merge all the newly created PDFs into a single file.
 *   **Clean & Safe:** Uses a temporary directory to store intermediate PDFs, which is automatically deleted upon completion, leaving no trace.
-*   **Robust Error Handling:** Provides detailed error messages if a file fails to convert or if another issue occurs.
+    *   **Robust Error Handling:** Provides detailed error messages if a file fails to convert or if another issue occurs.
+
+---
+
+## Security Considerations
+
+This application is a local utility and does not interact with networks or external services, which means it is not directly susceptible to many common web-based vulnerabilities like those in the OWASP Top 10. However, users should always:
+
+*   **Backup Important Data:** Before converting critical PowerPoint presentations, ensure they are backed up.
+*   **Handle Sensitive Information:** Be mindful of the content within the presentations being converted, especially if they contain sensitive or confidential information. Ensure proper handling and storage of the resulting PDF document.
+*   **Keep System and Software Updated:** Ensure your operating system, Microsoft PowerPoint, and Python environment are kept up-to-date with the latest security patches. This is particularly important as the application relies on Microsoft PowerPoint's COM automation.
 
 ---
 
@@ -27,7 +37,6 @@ This is a **Windows-only** application and requires **Microsoft PowerPoint** to 
     ```bash
     cd ppt-to-pdf-converter
     ```
-
 2.  **Install dependencies:**
     It's highly recommended to use a virtual environment.
     ```bash
