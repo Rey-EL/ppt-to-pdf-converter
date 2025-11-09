@@ -17,7 +17,7 @@ This is a **Windows-only** application and requires **Microsoft PowerPoint** to 
 *   **Recursive Search:** Scans a selected folder and all its subfolders to find every PowerPoint presentation.
 *   **PDF Merging:** After conversion, it uses the `pypdf` library to merge all the newly created PDFs into a single file.
 *   **Clean & Safe:** Uses a temporary directory to store intermediate PDFs, which is automatically deleted upon completion, leaving no trace.
-    *   **Robust Error Handling:** Provides detailed error messages if a file fails to convert or if another issue occurs.
+*   **Robust Error Handling:** Provides detailed error messages if a file fails to convert or if another issue occurs.
 
 ---
 
@@ -85,3 +85,15 @@ To build the executable:
     ```
 
 3.  The final `convert_to_pdf.exe` will be located in the `dist` folder.
+
+---
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE.md file for details.
+
+---
+
+## Contributing
+
+Contributions are welcome! If you have suggestions for improvements, bug reports, or want to add new features, please feel free to open an issue or submit a pull request.
