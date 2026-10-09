@@ -44,8 +44,7 @@ def main_process(source_folder, final_pdf_path, app_instance):
 
     ppt_files.sort()
     
-    # --- THIS IS THE UPDATED PART ---
-    # Create a secure, temporary directory that cleans up automatically
+    # Convert into a temp folder that deletes itself when the block exits
     with tempfile.TemporaryDirectory() as temp_pdf_folder:
         app_instance.progress_bar['maximum'] = len(ppt_files)
         converted_pdfs = []
@@ -73,11 +72,10 @@ def main_process(source_folder, final_pdf_path, app_instance):
         with open(final_pdf_path, "wb") as out_file:
             pdf_writer.write(out_file)
         pdf_writer.close()
-    # --- END OF UPDATED PART (the temp folder is auto-deleted here) ---
     
     return f"Success! {len(converted_pdfs)} presentations converted and merged."
 
-# --- GUI Application Code (No changes needed here) ---
+# GUI application code
 class App:
     def __init__(self, root):
         self.root = root
